@@ -1,0 +1,23 @@
+{
+  "name": "haji-mix-api-proxy",
+  "version": "1.0.0",
+  "description": "A proxy server to make haji-mix-api compatible with OpenAI API format.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "api",
+    "proxy",
+    "openai",
+    "claude"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
