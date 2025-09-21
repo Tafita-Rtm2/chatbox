@@ -38,7 +38,7 @@ export async function testApiOrigins() {
         try {
           const origin: string = pool[i]
           const controller = new AbortController()
-          setTimeout(() => controller.abort(), 2000) // 2秒超时
+          // setTimeout(() => controller.abort(), 2000) // Timeout de 2s désactivé
           const res = await ofetch<{ data: { api_origins: string[] } }>(`${origin}/api/api_origins`, {
             signal: controller.signal,
             retry: 1,

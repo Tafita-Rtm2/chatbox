@@ -79,7 +79,7 @@ app.post('/v1/chat/completions', async (req, res) => {
         api_key: HAJI_API_KEY,
         uid: '2' // *** FIX: Added the mandatory uid parameter ***
       },
-      timeout: 30000 // Increased timeout to 30 seconds
+      // timeout: 30000 // Désactivé pour supprimer la limite de temps
     });
 
     console.log('External API call successful.');

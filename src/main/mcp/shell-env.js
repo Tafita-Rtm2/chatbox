@@ -1316,19 +1316,8 @@ var require_kill = __commonJS((exports2, module2) => {
     reject(Object.assign(new Error("Timed out"), { timedOut: true, signal }));
   };
   var setupTimeout = (spawned, { timeout, killSignal = "SIGTERM" }, spawnedPromise) => {
-    if (timeout === 0 || timeout === undefined) {
-      return spawnedPromise;
-    }
-    let timeoutId;
-    const timeoutPromise = new Promise((resolve, reject) => {
-      timeoutId = setTimeout(() => {
-        timeoutKill(spawned, killSignal, reject);
-      }, timeout);
-    });
-    const safeSpawnedPromise = spawnedPromise.finally(() => {
-      clearTimeout(timeoutId);
-    });
-    return Promise.race([timeoutPromise, safeSpawnedPromise]);
+    // Fonction modifiée pour ignorer et désactiver tous les timeouts sur les processus externes.
+    return spawnedPromise;
   };
   var validateTimeout = ({ timeout }) => {
     if (timeout !== undefined && (!Number.isFinite(timeout) || timeout < 0)) {
