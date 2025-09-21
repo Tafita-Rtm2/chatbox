@@ -220,7 +220,7 @@ async function cleanupProcessingFiles() {
 export async function checkProcessingTimeouts() {
   try {
     // Files processing for more than 5 minutes should be marked as failed
-    const timeoutMinutes = 5
+    const timeoutMinutes = 999999 // Valeur augmentée à un niveau très élevé pour désactiver efficacement le timeout
     const timeoutThreshold = new Date(Date.now() - timeoutMinutes * 60 * 1000).toISOString()
 
     const db = getDatabase()
